@@ -5,4 +5,6 @@ p = simple_format JSON.pretty_generate(@request.headers)
 h4 Body
 p = simple_format JSON.pretty_generate(@request.body)
 h4 Sent
-p = time_ago_in_words(@request.created_at)
+p = time_ago_in_words(@request.created_at) + " ago"
+
+= link_to 'Delete', @request, method: :delete
