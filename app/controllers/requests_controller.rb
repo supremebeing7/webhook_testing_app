@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
       headers: headers,
       body: body
     )
-    head :ok
+    render nothing: true, status: :ok
   end
 
   def destroy
@@ -46,6 +46,6 @@ class RequestsController < ApplicationController
   end
 
   def body
-    JSON.parse(request.env["RAW_POST_DATA"])
+    params.except(:controller, :action, :request)
   end
 end
