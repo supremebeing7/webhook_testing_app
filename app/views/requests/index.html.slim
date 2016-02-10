@@ -1,0 +1,12 @@
+table
+  tr
+    th Method
+    th Affiliate
+    th Event
+    th Sent At
+  - @requests.each do |request|
+    tr
+      td = request.method
+      td = link_to request.headers["HTTP_X_AFFILIATE_NAME"], request
+      td = request.headers["HTTP_X_HRSC_EVENT"]
+      td = time_ago_in_words(request.created_at)

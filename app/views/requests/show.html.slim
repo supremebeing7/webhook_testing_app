@@ -1,0 +1,8 @@
+h4 Request Method
+p = @request.method
+h4 Headers
+p = simple_format JSON.pretty_generate(@request.headers)
+h4 Body
+p = simple_format JSON.pretty_generate(@request.body)
+h4 Sent
+p = time_ago_in_words(@request.created_at)
